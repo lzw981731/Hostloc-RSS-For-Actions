@@ -1,0 +1,34 @@
+name: 'Hostloc Auto RSS'
+
+on:
+  push:
+    branches: 
+      - master
+  schedule:
+    - cron: '0 0/6 * * *'
+
+jobs:
+  get_points:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Checkout codes'
+      uses: actions/checkout@v2
+    - name: '设置python3.7'
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.7'
+    - name: '安装 dependencies'
+      run: python -m pip install --upgrade dependencies
+    - name: '安装 requests'
+      run: python -m pip install --upgrade requests
+    - name: '安装 lxml' 
+      run: python -m pip install --upgrade lxml
+    - name: '安装 torequests'
+      run: python -m pip install --upgrade torequests     
+    - name: '安装 js2py'
+      run: python -m pip install --upgrade js2py
+    - name: '开始推送内容至TG频道'
+      env:
+          POST_URL: ${{ secrets.POST_URL }}
+          TG_ID: ${{ secrets.TG_ID }}
+      run: python hostloc_tg.py
