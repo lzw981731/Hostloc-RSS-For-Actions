@@ -1,6 +1,6 @@
 ### ***使用 GitHub Actions 推送 Hostloc 新帖到TG群组/个人***
 
-####### 简介：
+###### 简介：
 
 推送效果：https://rss.vipkj.net/
 
