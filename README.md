@@ -2,7 +2,7 @@
 
 ###### 简介：
 
-推送效果：https://rss.vipkj.net/
+推送效果：https://xxxxxx
 
 推送源码来自：https://github.com/w2r/hostloc2tg
 
